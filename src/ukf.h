@@ -31,9 +31,6 @@ public:
   ///* predicted sigma points matrix
   MatrixXd Xsig_pred_;
 
-  ///* time when the state is true, in us
-  long long time_us_;
-
   ///* Process noise standard deviation longitudinal acceleration in m/s^2
   double std_a_;
 
@@ -66,7 +63,24 @@ public:
 
   ///* Sigma point spreading parameter
   double lambda_;
+  
+  ///* Sigma points dimension
+  int n_sig_;
 
+  ///* Radar measurement noise covariance matrix
+  MatrixXd R_radar_;
+
+  ///* Lidar measurement noise covariance matrix
+  MatrixXd R_lidar_;
+
+  ///* the current NIS for radar
+  double NIS_radar_;
+
+  ///* the current NIS for laser
+  double NIS_laser_;
+
+  // previous timestamp
+  long long previous_timestamp_;
 
   /**
    * Constructor
